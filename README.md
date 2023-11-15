@@ -1,4 +1,4 @@
-//[chat prompts](https://github.com/Pleiadem/Chat_Prompts/main/README_chat.md)
+//[chat prompts](https://github.com/Pleiadem/Chat_Prompts/blob/main/README_chat.md)
 
 
 //使用方法看结尾
