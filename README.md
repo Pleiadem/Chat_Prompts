@@ -1,6 +1,6 @@
 //[chat prompts](https://github.com/Pleiadem/Chat_Prompts/blob/main/README_chat.md)
 
-//[old cfg]（https://github.com/Pleiadem/Chat_Prompts/blob/main/README_oldcfg.md）
+//[old cfg](https://github.com/Pleiadem/Chat_Prompts/blob/main/README_oldcfg.md)
 
 
 
