@@ -81,12 +81,12 @@ alias huifu_off "alias huifu huifu_on; -fa;-fd;-fw;-fs;-back;-forward;-right;-le
 bind "v" "huifu"//上梯键位
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //*连跳代码，不需要可全删掉，后两行的bind MWHEELDOWN和bind MWHEELUP是滚轮绑定键位，第一行是连跳键位，第二行是恢复成自己的键位(需要设置)
-alias +jump_ "+jump;+jump"
-alias -jump_ "-jump;-jump;-jump"
-alias jomp "+jump_;-jump_"
-alias gunlun gunlun_on //滚轮+帧数
-alias gunlun_on "alias gunlun gunlun_off;bind MWHEELDOWN jomp;bind MWHEELUP jomp;toggle fps_max 32"//滚轮链条+锁帧32
-alias gunlun_off "alias gunlun gunlun_on;bind MWHEELDOWN radio;bind MWHEELUP invprev;toggle fps_max 999"//滚轮恢复原设置+最大帧数
+// alias +jump_ "+jump;+jump"
+// alias -jump_ "-jump;-jump;-jump"
+// alias jomp "+jump_;-jump_"
+// alias gunlun gunlun_on //滚轮+帧数
+// alias gunlun_on "alias gunlun gunlun_off;bind MWHEELDOWN jomp;bind MWHEELUP jomp;toggle fps_max 32"//滚轮链条+锁帧32
+// alias gunlun_off "alias gunlun gunlun_on;bind MWHEELDOWN radio;bind MWHEELUP invprev;toggle fps_max 999"//滚轮恢复原设置+最大帧数
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //*内格夫加速无声走(不可同时按wa或wd或sa或sd只能单独按方向键)不需要可全删掉
 alias +ngfjb_w "+forward;forwardback -0.899 0 0;"
