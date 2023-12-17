@@ -4,6 +4,16 @@
 
 
 
+
+
+
+viewmodel_fov "61.000000"
+
+viewmodel_offset_x "-2.0"
+
+viewmodel_offset_y "2.0"
+
+viewmodel_offset_z "-2.0"
 toggle cl_crosshair_recoil 0//默认准星跟随
 cl_hud_color 2 //默认白色HUD
 toggle fps_max 999//默认FPS999
