@@ -17,8 +17,16 @@ viewmodel_offset_z "-2.0"
 
 bind p "toggle cl_crosshair_recoil"
 
+
+cl_radar_scale 0.30 //雷达缩放
+
+cl_hud_radar_scale 1.3 //雷达大小（0.8-1.3）
+snd_tensecondwarning_volume 0.1 //十秒警告音量
 //默认准星跟随
-cl_hud_color 2 //默认白色HUD
+
+cl_teamid_overhead_always 2 //隔墙显示队友（1透视队友位置 2透视队友位置与装备）
+
+cl_hud_color 12 //默认自己队伍颜色HUD
 toggle fps_max 999//默认FPS999
 //默认绑定
 bind a +fa
