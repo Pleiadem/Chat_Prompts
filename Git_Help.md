@@ -29,8 +29,8 @@
 
 然后，你可以继续将代码推送到 GitHub！哇，你已经成功备份了你的代码！
 
-    git push origin master 
-注意：github需要先去开发者那设置秘钥，然后把秘钥当密码。
+    git push -u origin master 
+注意：github需要先去开发者那设置秘钥，然后把秘钥当密码。(-u 是指定upstring，指定后以后直接git push就行)
 
 可以编辑项目目录中.git 文件夹下的配置文件 config，修改其中 url 项：
 
@@ -43,3 +43,5 @@
 也就是在 https:// 之后，增加 用户名:密码@
 这样就不用每次push都输入密码🤤
     
+
+以后可能用上：[git push -f 的后悔药](https://juejin.cn/post/6844903929898090509)
