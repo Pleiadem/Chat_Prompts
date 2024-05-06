@@ -45,3 +45,19 @@
     
 
 以后可能用上：[git push -f 的后悔药](https://juejin.cn/post/6844903929898090509)
+
+### 从远程仓库拉取
+1. 拉取并合并(pull= fetch + merge)
+
+        git pull 
+
+2. 拉取拉取不合并
+
+        git fetch 
+
+3. 然后，使用`git merge`命令将远程分支合并到你当前所在的本地分支。可以使用以下命令：
+
+        git merge origin/远程分支名
+4. 克隆项目
+ 
+        git clone
