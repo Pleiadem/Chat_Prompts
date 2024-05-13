@@ -22,3 +22,22 @@
 5、`~/.bash_logout`：当每次退出系统(退出bash shell)时，执行该文件。另外，/etc/profile中设定的变量(全局)的可以作用于任何用户，而~/.bashrc等中设定的变量(局部)只能继承 /etc/profile中的变量，他们是”父子”关系。
 
 6、`~/.bash_profile`：该文件是交互式、login方式进入bash运行的，~/.bashrc是交互式non-login方式进入bash运行的，通常二者设置大致相同，所以通常前者会调用后者。
+
+## 附上main脚本：
+
+    #!/bin/bash
+
+    # 检查是否存在名为 'main' 的 tmux 会话
+    tmux has-session -t main 2>/dev/null
+
+    if [ $? != 0 ]; then
+    echo "没有找到 'main' 会话，正在创建..."
+    # 创建名为 'main' 的新会话
+    tmux new-session -d -s main
+    echo "'main' 会话已创建。"
+    else
+    echo "已找到 'main' 会话，正在连接..."
+    fi
+
+    # 连接到 'main' 会话
+    tmux attach-session -t main
