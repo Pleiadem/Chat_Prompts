@@ -16,3 +16,4 @@
 ***即 删除`obscure`以及添加`minlen=1`***
 
 然后直接命令行 `passwd` 就行
+如果不行最好就 ***sudo passwd [用户名]***
