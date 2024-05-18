@@ -1,21 +1,21 @@
 # 本仓库为个人资料整理
 主要有以下项目：
 ### 目录：
-  - [directory_structure.md](Chat_Prompts/directory_structure.md)
-  - [README.md](Chat_Prompts/README.md)
-- [Linux_Control_help](Chat_Prompts/Linux_Control_help)/
-  - [Linux使用ssh连接上自启动.md](Chat_Prompts/Linux_Control_help/Linux使用ssh连接上自启动.md)
-  - [Linux端口转发.md](Chat_Prompts/Linux_Control_help/Linux端口转发.md)
-  - [Linux设置简单密码.md](Chat_Prompts/Linux_Control_help/Linux设置简单密码.md)
-- [个人学习](Chat_Prompts/个人学习)/
-  - [Git_Help.md](Chat_Prompts/个人学习/Git_Help.md)
-  - [Mc开服简易教程](Chat_Prompts/个人学习/Mc开服简易教程)
-- [归档](Chat_Prompts/归档)/
-  - [jtnew.cfg](Chat_Prompts/归档/jtnew.cfg)
-  - [CS2配置](Chat_Prompts/归档/CS2配置)/
-    - [jiting.cfg](Chat_Prompts/归档/CS2配置/jiting.cfg)
-    - [README_chat.md](Chat_Prompts/归档/CS2配置/README_chat.md)
-    - [左右无冲_准星自适应.md](Chat_Prompts/归档/CS2配置/左右无冲_准星自适应.md)
-- [黑科技](Chat_Prompts/黑科技)/
-  - [有公网的Windows实现端口转发.md](Chat_Prompts/黑科技/有公网的Windows实现端口转发.md)
-  - [移动windows的AppData.md](Chat_Prompts/黑科技/移动windows的AppData.md)
+  - [directory_structure.md](/directory_structure.md)
+  - [README.md](/README.md)
+- [Linux_Control_help](/Linux_Control_help)/
+  - [Linux使用ssh连接上自启动.md](/Linux_Control_help/Linux使用ssh连接上自启动.md)
+  - [Linux端口转发.md](/Linux_Control_help/Linux端口转发.md)
+  - [Linux设置简单密码.md](/Linux_Control_help/Linux设置简单密码.md)
+- [个人学习](/个人学习)/
+  - [Git_Help.md](/个人学习/Git_Help.md)
+  - [Mc开服简易教程](/个人学习/Mc开服简易教程)
+- [归档](/归档)/
+  - [jtnew.cfg](/归档/jtnew.cfg)
+  - [CS2配置](/归档/CS2配置)/
+    - [jiting.cfg](/归档/CS2配置/jiting.cfg)
+    - [README_chat.md](/归档/CS2配置/README_chat.md)
+    - [左右无冲_准星自适应.md](/归档/CS2配置/左右无冲_准星自适应.md)
+- [黑科技](/黑科技)/
+  - [有公网的Windows实现端口转发.md](/黑科技/有公网的Windows实现端口转发.md)
+  - [移动windows的AppData.md](/黑科技/移动windows的AppData.md)
