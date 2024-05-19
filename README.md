@@ -22,6 +22,7 @@
   - [README.md](/README.md)
 - [Linux_Control_help](/Linux_Control_help)/
   - [Linux使用ssh连接上自启动.md](/Linux_Control_help/Linux使用ssh连接上自启动.md)
+  - [Linux快捷操作.md](/Linux_Control_help/Linux快捷操作.md)
   - [Linux端口转发.md](/Linux_Control_help/Linux端口转发.md)
   - [Linux设置简单密码.md](/Linux_Control_help/Linux设置简单密码.md)
 - [个人学习](/个人学习)/
