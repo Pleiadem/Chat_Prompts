@@ -118,6 +118,8 @@ Git 分支管理
 
 >git branch \-d (branchname)
 
+删除远端分支
+>git pull origin --delete (branchname)
 ### 分支合并
 
 一旦某分支有了独立内容，你终究会希望将它合并回到你的主分支。 你可以使用以下命令将任何分支合并到**当前分支**中去：
