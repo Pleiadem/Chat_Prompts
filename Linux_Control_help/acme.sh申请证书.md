@@ -16,6 +16,19 @@ curl https://get.acme.sh | sh
 source ~/.bashrc
 ```
 
+#### 查看定时任务
+
+acme.sh 安装完成后，会自动创建一条定时任务。
+
+    $ crontab -l
+    
+
+
+能看到如下输出：
+
+    9 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
+    
+
 ## 设置默认 CA 服务为 Let’s Encrypt
 
 acme.sh 支持多个 CA 服务，默认情况下使用 ZeroSSL。我们将 CA 服务更改为 Let’s Encrypt。执行以下命令：
@@ -71,11 +84,31 @@ acme.sh --list
     acme.sh --issue -d example.com --standalone --httpport 80
     ```
 
-4. 查看证书状态：
+### 查看证书列表
 
-    ```sh
-    acme.sh --list
-    ```
+    $ acme.sh --list
+    
+
+
+### 更新证书
+
+目前 Let’s Encrypt 的证书有效期是90天，时间到了会自动更新，您无需任何操作。  
+但是，您也可以手动强制续签证书：
+
+    $ acme.sh --renew -d domain.com --force
+    
+
+
+【注】为了确保定时任务能自动续签证书，可以受到调用一次定时任务进行续签：
+
+    $ acme.sh --force --cron
+
+### 检测网站的安全级别
+
+完成证书部署后可以通过如下站点检测网站的安全级别：  
+[https://myssl.com](https://myssl.com)  
+[https://www.ssllabs.com](https://www.ssllabs.com)
+
 
 通过上述步骤，您应该能够成功为您的域名申请到 SSL 证书。如果在申请过程中遇到问题，可以参考 [acme.sh 官方文档](https://github.com/acmesh-official/acme.sh) 获取更多帮助。
 
@@ -85,3 +118,63 @@ acme.sh --list
 - **速率限制问题**：速率限制问题：如果申请过多失败，请等待一段时间后再重试，或检查配置确保正确。如果仍然遇到速率限制问题，可以尝试将域名的大小写变换一下，例如将 example.com 改为 Example.com 再尝试申请。
 
 希望本教程对您有所帮助！
+
+### 其他：更新、删除及卸载
+
+#### 更新 acme.sh
+
+升级 acme.sh 到最新版：
+
+    $ acme.sh --upgrade
+    
+
+
+如果不想手动升级，可以开启自动升级：
+
+    $ acme.sh --upgrade --auto-upgrade
+    
+
+
+关闭自动更新：
+
+    $ acme.sh --upgrade --auto-upgrade 0
+    
+
+
+#### 删除证书
+
+    $ acme.sh remove <SAN_Domains>
+    
+
+#### 卸载
+
+##### 1\. 先执行卸载命令
+
+卸载会删除已经生成的证书、添加的定时监测也会删掉。
+
+    $ acme.sh --uninstall
+    
+
+##### 2\. 再删除目录
+
+    $ rm -rf ~/.acme.sh
+    
+
+#### 卸载证书
+
+我们使用acme自动签发SSL证书后，acme会自动生成任务。在到期前30天自动再次签发。如果域名不再使用。那么需要删除它。
+
+命令：
+
+    acme.sh --remove -d 你的域名
+
+    删除后记得到 /root/.acme.sh/找到域名文件夹。一并删除。
+
+#### 安装/copy证书
+
+    acme.sh --install-cert \
+    --domain example.com \
+    --cert-file /etc/ssl/example.com/cert.pem \
+    --key-file /etc/ssl/example.com/key.pem \
+    --fullchain-file /etc/ssl/example.com/fullchain.pem \
+    --reloadcmd "systemctl restart httpd"
