@@ -24,11 +24,15 @@
   - [README.md](/README.md)
 - [Linux_Control_help](/Linux_Control_help)/
   - [acme.sh申请证书.md](/Linux_Control_help/acme.sh申请证书.md)
+  - [FRP配置.md](/Linux_Control_help/FRP配置.md)
   - [Linux使用ssh连接上自启动.md](/Linux_Control_help/Linux使用ssh连接上自启动.md)
+  - [Linux常用操作.md](/Linux_Control_help/Linux常用操作.md)
   - [Linux快捷操作.md](/Linux_Control_help/Linux快捷操作.md)
   - [Linux端口转发.md](/Linux_Control_help/Linux端口转发.md)
   - [Linux设置简单密码.md](/Linux_Control_help/Linux设置简单密码.md)
   - [Reclone映射webdav到本地.md](/Linux_Control_help/Reclone映射webdav到本地.md)
+  - [rhel6.9配置yum源.md](/Linux_Control_help/rhel6.9配置yum源.md)
+  - [WSL2安装与配置.md](/Linux_Control_help/WSL2安装与配置.md)
 - [个人学习](/个人学习)/
   - [Git_Help.md](/个人学习/Git_Help.md)
   - [Mc开服简易教程](/个人学习/Mc开服简易教程)
