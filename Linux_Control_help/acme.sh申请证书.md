@@ -53,6 +53,21 @@ acme.sh --issue -d <你的域名> --standalone --httpport 80
 acme.sh --issue -d <你的域名> --standalone --httpport <其他端口>
 ```
 
+
+## 使用 DNS 模式申请证书
+
+要为您的域名申请 SSL 泛域名证书，您可以使用 DNS 模式。这种模式下，acme.sh 会使用DNS服务器来完成域名验证。请使用以下命令：
+
+```sh
+export CF_Key="cloudflare 中查看你的 key" （APIkey中的Global key）
+export CF_Email="你的 cloudflare 邮箱"
+```
+
+
+
+```sh
+acme.sh --issue --dns dns_cf -d *.example.xyz -d example.xyz
+```
 ## 查看证书状态
 
 您可以使用以下命令查看已申请证书的状态：
@@ -95,7 +110,7 @@ acme.sh --list
 目前 Let’s Encrypt 的证书有效期是90天，时间到了会自动更新，您无需任何操作。  
 但是，您也可以手动强制续签证书：
 
-    $ acme.sh --renew -d domain.com --force
+    $ sx
     
 
 
