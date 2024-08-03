@@ -41,3 +41,29 @@
 
     # 连接到 'main' 会话
     tmux attach-session -t main
+
+---
+### ssh密钥登录 
+1、 服务器使用下面指令生成ed25519密钥对(默认保存在 ~/.ssh/ 下)
+ `ssh-keygen -t ed25519 -C "your_email@example.com"`
+ - -t 指定算法
+ - -c 指定备注，以便打开文件知道是哪台机器的密钥
+
+然后会在目录生成`id_ed25519（私钥）`  `id_ed25519.pub（公钥） `
+
+**把公钥改名为`authorized_keys`或者接着`authorized_keys`后面插入公钥的内容**
+
+然后把私钥下载到本机就可以了
+
+可以通过
+
+    ssh root@ipaddress -i {密钥路径} 使用密钥登录
+
+或者修改配置文件`C:/user/Administator/.ssh/config`
+
+    Host {hostname(可以直接ssh这个名字链接)}
+        HostName {服务器ip}
+        Port {端口}
+        User root
+        IdentitiesOnly yes
+        IdentityFile {文件路径,例如： C:/Users/ADMIN/.ssh/xxx.pem}
