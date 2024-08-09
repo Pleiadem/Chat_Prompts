@@ -78,17 +78,17 @@ Git 分支实际上是指向更改快照的指针。
 
 创建分支命令：
 
->git branch (branchname)
+>git branch \<branchname>
 
 切换分支命令:
 
->git checkout (branchname)
+>git checkout \<branchname>
 
 当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。
 
 合并分支命令:
 
->git merge 
+>git merge \<branchname>
 
 你可以多次合并到统一分支， 也可以选择在合并之后直接删除被并入的分支。
 
@@ -106,7 +106,7 @@ Git 分支管理
 
 接下来我们将演示如何切换分支，我们用 git checkout (branch) 切换到我们要修改的分支。
 
-我们也可以使用 **git checkout -b (branchname)** 命令来创建新分支并立即切换到该分支下，从而在该分支中操作。
+我们也可以使用 **git checkout -b \<branchname>** 命令来创建新分支并立即切换到该分支下，从而在该分支中操作。
 
 如你所见，我们创建了一个分支，在该分支上移除了一些文件 test.txt，并添加了 runoob.php 文件，然后切换回我们的主分支，删除的 test.txt 文件又回来了，且新增加的 runoob.php 不存在主分支中。
 
@@ -116,21 +116,51 @@ Git 分支管理
 
 删除分支命令：
 
->git branch \-d (branchname)
+>git branch \-d \<branchname>
 
 删除远端分支
->git pull origin --delete (branchname)
+>git pull origin --delete \<branchname>
 ### 分支合并
 
-一旦某分支有了独立内容，你终究会希望将它合并回到你的主分支。 你可以使用以下命令将任何分支合并到**当前分支**中去：
->git merge (branchname)
+一旦某分支有了独立内容，你终究会希望将它合并回到你的主分支。
+你可以使用以下命令将任何分支**合并到*当前分支***中去：
+>git merge \<branchname>
 
 合并完后就可以删除分支:
 
->git branch \-d (branchname)
+>git branch \-d \<branchname>
 
 
 ### 合并冲突
 
 在 Git 中，我们可以用 `git add` 要告诉 Git 文件冲突已经解决
     [解决git冲突步骤（超详细）](https://blog.csdn.net/weixin_45597885/article/details/129464448)
+
+## 撤回
+
+### 1. 只撤回commit
+如果你已经提交了代码，但希望撤销这次提交而保留代码的更改(相当于只撤销commit)，可以使用以下命令：
+
+```sh
+git reset --soft HEAD~1
+```
+
+### 2. 全部丢弃，恢复到上次commit
+如果你希望撤销最近的提交并放弃这次提交的更改，可以使用：
+
+```sh
+git reset --hard HEAD~1
+```
+
+这个命令会将最近一次提交撤销，并且所有更改都会被丢弃，这意味着代码会回到前一次提交的状态。
+
+### 3. 回退到特定提交
+
+如果你想将仓库回退到某个特定的提交，可以使用：
+```sh
+git log
+```
+查看提交日志，记下要回退到的hash
+```sh
+git reset --hard <commit_hash>
+```
