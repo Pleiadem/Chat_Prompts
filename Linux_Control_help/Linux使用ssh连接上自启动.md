@@ -24,9 +24,9 @@
 6、`~/.bash_profile`：该文件是交互式、login方式进入bash运行的，~/.bashrc是交互式non-login方式进入bash运行的，通常二者设置大致相同，所以通常前者会调用后者。
 
 ## 附上main脚本：
-
+    stty -ixon
     #!/bin/bash
-
+    export TERM=xterm-256color
     # 检查是否存在名为 'main' 的 tmux 会话
     tmux has-session -t main 2>/dev/null
 
