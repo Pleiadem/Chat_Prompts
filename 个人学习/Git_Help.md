@@ -3,7 +3,7 @@
 配置本地仓库邮箱
 
     $ git config --global user.name "Pleiadem"  
-    $ git config --global user.email "1284530956@qq.com"  
+    $ git config --global user.email "xxxx@qq.com"  
 为 Git 启用一些额外的颜色
 
     git config --global color.ui true
