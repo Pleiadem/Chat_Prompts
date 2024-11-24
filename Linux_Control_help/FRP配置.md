@@ -9,7 +9,7 @@
 首先，我们需要下载FRP的最新版本。在终端中执行以下命令：
 
 ```bash
-wget https://github.com/fatedier/frp/releases/download/v0.59.0/frp_0.59.0_linux_amd64.tar.gz
+wget https://github.com/fatedier/frp/releases/download/v0.61.0/frp_0.61.0_linux_amd64.tar.gz
 ```
 
 ### 步骤二：解压FRP
@@ -17,19 +17,19 @@ wget https://github.com/fatedier/frp/releases/download/v0.59.0/frp_0.59.0_linux_
 下载完成后，解压FRP压缩包：
 
 ```bash
-tar -xzf frp_0.59.0_linux_amd64.tar.gz
+tar -xzf frp_0.61.0_linux_amd64.tar.gz
 ```
 
 ### 步骤三：配置FRP服务端
 
-解压后，进入FRP的目录，找到并编辑 `frps.ini` 配置文件。以下是示例配置：
+解压后，进入FRP的目录，找到并编辑 `frps.toml` 配置文件。以下是示例配置：
 
-```ini
+```toml
 bind_port = 7000
-auth_method = "token"
-auth_token = "123456"
-web_server_addr = "0.0.0.0"
-web_server_port = 7500
+auth.method = "token"
+auth.token = "123456"
+web_serverAddr = "0.0.0.0"
+web_serverPort = 7500
 web_server_user = "admin"
 web_server_password = "admin"
 ```
@@ -37,8 +37,8 @@ web_server_password = "admin"
 上述配置说明：
 
 - `bind_port`: FRP服务端监听的端口，设置为7000。
-- `auth_method` 和 `auth_token`: 认证方法和认证令牌，确保客户端和服务端匹配。
-- `web_server_addr` 和 `web_server_port`: 服务端仪表盘的地址和端口，便于管理和监控。
+- `auth.method` 和 `auth.token`: 认证方法和认证令牌，确保客户端和服务端匹配。
+- `web_serverAddr` 和 `web_serverPort`: 服务端仪表盘的地址和端口，便于管理和监控。
 - `web_server_user` 和 `web_server_password`: 服务端仪表盘的登录用户名和密码。
 
 ## 客户端配置
@@ -48,7 +48,7 @@ web_server_password = "admin"
 同样地，我们需要在客户端下载FRP。在终端中执行以下命令：
 
 ```bash
-wget https://github.com/fatedier/frp/releases/download/v0.59.0/frp_0.59.0_linux_amd64.tar.gz
+wget https://github.com/fatedier/frp/releases/download/v0.61.0/frp_0.61.0_linux_amd64.tar.gz
 ```
 
 ### 步骤二：解压FRP
@@ -56,57 +56,57 @@ wget https://github.com/fatedier/frp/releases/download/v0.59.0/frp_0.59.0_linux_
 下载完成后，解压FRP压缩包：
 
 ```bash
-tar -xzf frp_0.59.0_linux_amd64.tar.gz
+tar -xzf frp_0.61.0_linux_amd64.tar.gz
 ```
 
 ### 步骤三：配置FRP客户端
 
-解压后，进入FRP的目录，找到并编辑 `frpc.ini` 配置文件。以下是示例配置：
+解压后，进入FRP的目录，找到并编辑 `frpc.toml` 配置文件。以下是示例配置：
 
-```ini
-server_addr = "192.168.1.1"
-server_port = 7000
-auth_method = "token"
-auth_token = "123456"
+```toml
+serverAddr = "192.168.1.1"
+serverPort = 7000
+auth.method = "token"
+auth.token = "123456"
 
 [[proxies]]
 name = "ssh"
 type = "tcp"
-local_ip = "127.0.0.1"
-local_port = 22
-remote_port = 7722
+localIP = "127.0.0.1"
+localPort = 22
+remotePort = 7722
 
 [[proxies]]
 name = "ISP"
 type = "tcp"
-local_ip = "127.0.0.1"
-local_port = 5060
-remote_port = 7760
+localIP = "127.0.0.1"
+localPort = 5060
+remotePort = 7760
 
 [[proxies]]
 name = "ISP-UDP"
 type = "udp"
-local_ip = "127.0.0.1"
-local_port = 5060
-remote_port = 7760
+localIP = "127.0.0.1"
+localPort = 5060
+remotePort = 7760
 
 [[proxies]]
 name = "1Panel"
 type = "tcp"
-local_ip = "127.0.0.1"
-local_port = 8088
-remote_port = 7780
+localIP = "127.0.0.1"
+localPort = 8088
+remotePort = 7780
 ```
 
 上述配置说明：
 
-- `server_addr` 和 `server_port`: 指定FRP服务端的地址和端口。
-- `auth_method` 和 `auth_token`: 与服务端匹配的认证方法和认证令牌。
+- `serverAddr` 和 `serverPort`: 指定FRP服务端的地址和端口。
+- `auth.method` 和 `auth.token`: 与服务端匹配的认证方法和认证令牌。
 - `[[proxies]]`: 配置代理服务，每个代理服务包含以下字段：
   - `name`: 代理服务的名称。
   - `type`: 代理类型，支持 `tcp` 和 `udp`。
-  - `local_ip` 和 `local_port`: 本地服务的地址和端口。
-  - `remote_port`: FRP服务端暴露的远程端口。
+  - `localIP` 和 `localPort`: 本地服务的地址和端口。
+  - `remotePort`: FRP服务端暴露的远程端口。
 
 ## 设置开机自启
 
@@ -126,14 +126,14 @@ remote_port = 7780
 1. 创建一个新的服务文件：
 
     ```bash
-    sudo nano /etc/systemd/system/frpc.service
+    sudo vim /etc/systemd/system/frpc.service
     ```
 
 
 
 2. 在文件中添加以下内容：
 
-    ```ini
+    ```toml
     [Unit]
     Description=FRP Client Service
     After=network.target
