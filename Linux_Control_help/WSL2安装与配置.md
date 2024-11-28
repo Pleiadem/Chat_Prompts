@@ -139,6 +139,13 @@ ubuntu.exe config --default-user root
 
     wsl --shutdown 虚拟机名称
 
+---
+#### 7. 安装基本软件
+
+    sudo apt update
+    sudo apt upgrade
+    sudo apt install openssh-client openssh-server curl wget vim -y
+    
 [让WSL开机启动，后台运行，以减少唤醒时间]()
 ==============================================================================================
 
@@ -154,10 +161,10 @@ WSL2会默认关闭不使用的实例，当你关闭了WSL的Console后，实例
 
 1.  WIN+R 运行 `shell:startup` 打开启动目录
 2.  在此目录中创建文件 wsl-startup.vbs
-3.  在 wsl-startup.vbs 中填充如下内容，Ubuntu-22.04需替换为你使用的发行版名称。
+3.  在 wsl-startup.vbs 中填充如下内容，Ubuntu需替换为你使用的发行版名称。
 ```
 set ws=wscript.CreateObject("wscript.shell")
-ws.run "wsl -d Ubuntu-22.04", 0
+ws.run "wsl -d Ubuntu", 0
 ```
 
 这样当你系统启动，登录系统后，Windows会开启 WSL 实例，它会永久等待输入，不会关闭。所以当你下次再使用WSL命令时，就不会遇到需要重新唤醒 WSL 的耗时。
