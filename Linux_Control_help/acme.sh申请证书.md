@@ -20,7 +20,7 @@ source ~/.bashrc
 
 acme.sh 安装完成后，会自动创建一条定时任务。
 
-    $ crontab -l
+    crontab -l
     
 
 
@@ -39,6 +39,10 @@ acme.sh --set-default-ca --server letsencrypt
 
 有关 acme.sh 支持的 CA 服务的更多信息，请参阅 [acme.sh Wiki](https://github.com/acmesh-official/acme.sh/wiki/Server)。
 
+## 如果申请时出现：`Please install socat tools first.`
+那就先安装/更新socat
+
+    apt-get install socat
 ## 使用 standalone 模式申请证书
 
 要为您的域名申请 SSL 证书，您可以使用 standalone 模式。这种模式下，acme.sh 会启动一个临时的 Web 服务器来完成域名验证。请使用以下命令：
