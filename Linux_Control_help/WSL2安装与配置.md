@@ -145,7 +145,7 @@ ubuntu.exe config --default-user root
 
     sudo apt update
     sudo apt upgrade
-    sudo apt install openssh-client openssh-server curl wget vim -y
+    sudo apt install openssh-client openssh-server curl wget vim ifconfig -y
     
 [让WSL开机启动，后台运行，以减少唤醒时间]()
 ==============================================================================================
