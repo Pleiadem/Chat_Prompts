@@ -31,6 +31,7 @@
 ```powershell
 wsl -l -v
 ```
+有问题可以到 [github的wsl下载](https://github.com/microsoft/WSL/releases)
 
 ### 4. 升级WSL1到WSL2
 
