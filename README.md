@@ -38,6 +38,7 @@
   - [Mc开服简易教程](/个人学习/Mc开服简易教程)
   - [Word操作.md](/个人学习/Word操作.md)
   - [独角数卡php环境.md](/个人学习/独角数卡php环境.md)
+  - [Python_Help.md](/个人学习/Python_Help.md)
 - [归档](/归档)/
   - [jtnew.cfg](/归档/jtnew.cfg)
   - [CS2配置](/归档/CS2配置)/
