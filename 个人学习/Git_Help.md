@@ -165,3 +165,81 @@ git log
 ```sh
 git reset --hard <commit_hash>
 ```
+
+
+## 删除git历史中的文件
+“从Git历史记录中彻底删除文件”。仅仅在新的提交中删除文件是不够的，因为它依然存在于旧的提交历史中，任何人都可以通过检出(checkout)旧版本来找回它。
+
+**警告：** 以下操作会**重写Git的提交历史**。这意味着所有受影响的提交的ID（哈希值）都会改变。
+
+*   **如果你是个人开发者，或者在个人分支上操作**：这是安全的。
+*   **如果你在一个团队协作的共享分支上操作**：**必须**在操作前与所有团队成员沟通。因为在您强制推送(force push)重写后的历史后，所有其他成员都需要执行特殊操作来同步他们的本地仓库，否则会造成巨大的混乱。
+
+
+### 使用 `git filter-repo` (官方推荐的现代工具)**
+
+这是目前**最好、最快、最安全**的方法，是`git filter-branch`的官方替代品。它不是Git自带的，需要单独安装一次。
+
+#### **第1步：安装 `git-filter-repo`**
+
+它是一个Python脚本，安装非常简单。
+
+```bash
+# 使用pip安装
+pip install git-filter-repo
+
+# 在macOS上使用Homebrew
+# brew install git-filter-repo
+```
+*确保您的Python和pip已正确配置在系统路径中。*
+
+#### **第2步：执行清理操作**
+
+**在你本地的仓库副本中**，运行以下命令。
+
+*   **删除单个文件：**
+    假设您要从所有历史记录中删除一个名为 `secret_key.txt` 的文件。
+
+    ```bash
+    git filter-repo --path secret_key.txt --invert-paths
+    ```
+
+*   **删除整个文件夹：**
+    假设您要删除一个名为 `credentials/` 的文件夹。
+
+    ```bash
+
+    git filter-repo --path credentials/ --invert-paths
+    ```
+
+*   **删除多种文件或文件夹：**
+    您可以多次使用 `--path`。例如，删除 `secret_key.txt` 和 `config/` 文件夹。
+
+    ```bash
+    git filter-repo --path secret_key.txt --path config/ --invert-paths
+    ```
+
+*   **按文件名模式删除 (例如所有 `.log` 文件):**
+    ```bash
+    git filter-repo --path-glob '*.log' --invert-paths
+    ```
+
+**命令解释:**
+*   `--path <文件或文件夹路径>`: 指定你**不**想要的目标。
+*   `--invert-paths`: 这是一个关键开关，它的意思是“处理**除了**我用`--path`指定的路径之外的所有路径”，实际上就等同于“删除我指定的路径”。
+
+#### **第3步：检查结果**
+
+`git-filter-repo` 执行完毕后，它会告诉你它重写了多少提交。你可以使用 `git log` 查看历史记录，确认那些敏感文件确实已经消失了。
+
+#### **第4步：强制推送到远程仓库**
+
+由于历史已经被重写，你必须使用强制推送 (`--force`) 将这些更改应用到远程仓库（如GitHub）。
+
+```bash
+# 推送到所有分支和标签
+git push --force --all
+
+# 如果只想推送当前分支（例如main）
+# git push origin main --force
+```
