@@ -36,9 +36,10 @@
 - [个人学习](/个人学习)/
   - [Git_Help.md](/个人学习/Git_Help.md)
   - [Mc开服简易教程](/个人学习/Mc开服简易教程)
+  - [Nodejs.md](/个人学习/Nodejs.md)
+  - [Python_Help.md](/个人学习/Python_Help.md)
   - [Word操作.md](/个人学习/Word操作.md)
   - [独角数卡php环境.md](/个人学习/独角数卡php环境.md)
-  - [Python_Help.md](/个人学习/Python_Help.md)
 - [归档](/归档)/
   - [jtnew.cfg](/归档/jtnew.cfg)
   - [CS2配置](/归档/CS2配置)/
@@ -46,6 +47,7 @@
     - [README_chat.md](/归档/CS2配置/README_chat.md)
     - [左右无冲_准星自适应.md](/归档/CS2配置/左右无冲_准星自适应.md)
 - [黑科技](/黑科技)/
+  - [Lghub脚本.md](/黑科技/Lghub脚本.md)
   - [有公网的Windows实现端口转发.md](/黑科技/有公网的Windows实现端口转发.md)
   - [移动windows的AppData.md](/黑科技/移动windows的AppData.md)
 ---

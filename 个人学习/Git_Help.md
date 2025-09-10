@@ -35,11 +35,12 @@
 可以编辑项目目录中.git 文件夹下的配置文件 config，修改其中 url 项：
 
     [remote "origin"]
-    url = https://gitee.com/uxpi/zsites.git
+    url = https://github.com/用户名/仓库名.git
 修改为：
 
     [remote "origin"]   
-    url = https://uxpi:password@gitee.com/uxpi/zsites.git
+    url = https://用户名:密钥@github.com/用户名/仓库名.git
+    
 也就是在 https:// 之后，增加 用户名:密码@
 这样就不用每次push都输入密码🤤
     
